@@ -1,6 +1,13 @@
 <h1>FavoriteImages#index</h1>
 <p>Find me in app/views/favorite_images/index.html.erb</p>
-<%= form_tag '/index' do %>
+<%= form_tag '/favorite_images/index', method: 'get' do %>
   search: <%= text_field_tag :search_name %>
   <%= submit_tag "Search" %>
+  <%= @search_name unless @search_name.nil?%>
+  <%= @api_response unless @api_response.nil?%>
 <% end %>
+<%@api_response.to_a.each do |url|%>
+<div class="by-category"  style="background-image: url(<%=url %>); height: 300px; width:400px;">
+
+</div>
+<%end%>
