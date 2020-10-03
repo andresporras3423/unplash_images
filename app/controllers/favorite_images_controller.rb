@@ -1,13 +1,15 @@
 class FavoriteImagesController < ApplicationController
 
   def index
-    if params[:search_name]
-        photos = Unsplash::Photo.search(params[:search_name])
+    @search = params[:search]
+    if @search
+        photos = Unsplash::Photo.search(@search)
         # p "HERE CHECK OUT"
         # p photos[0]
         # url = "https://api.unsplash.com/search/photos?query=#{@search_name}&client_id=z88eko8yjR2DJRxJhpSWZAAS-eNdEP19QBE6mvQGrDI"
         # uri = URI(url)
         # response = Net::HTTP.get(uri)
+        @favorite_images = FavoriteImage.all
         @api_response = photos.map{|image| {"url"=> image["urls"]["small"], "user"=> image["user"]["username"], "id"=>image["id"]}}
     end
 
@@ -20,9 +22,8 @@ class FavoriteImagesController < ApplicationController
   end
 
   def save
-    p "ID VALUE IS: #{params[:id]}"
-    FavoriteImage.create(image_id: params[:id], search_name: "hello world")
-    @api_response=nil
+    FavoriteImage.create(image_id: params[:id])
+    redirect_to "/favorite_images/index?method=search_photos&search=#{params[:search]}"
   end
 
   def show

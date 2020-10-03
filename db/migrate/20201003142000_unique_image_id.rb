@@ -1,0 +1,5 @@
+class UniqueImageId < ActiveRecord::Migration[6.0]
+  def change
+    add_index :favorite_images, :image_id, unique: true, name: 'unique_image'
+  end
+end

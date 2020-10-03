@@ -2,13 +2,16 @@
 <p>Find me in app/views/favorite_images/index.html.erb</p>
 <%= form_tag '/favorite_images/index', method: 'get' do %>
 <%= hidden_field_tag :method , "search_photos" %>
-  <%# search: <%= text_field_tag :search_name %>
+  <%= text_field_tag :search %>
   <%= submit_tag "Search" %>
 <% end %>
 <%@api_response.to_a.each do |image|%>
-<div class="images-style"  style="background-image: url(<%=image["url"] %>);">
+<div style="<%= @favorite_images.any?{|fi| fi.image_id==image["id"]} ? "background-color: green;" : "" %>">
+  <div class="images-style"  style="background-image: url(<%=image["url"] %>);">
+  </div>
+  <p><strong>author:</strong> <%=image["user"] %></p>
+  <p><strong>id:</strong> <%=image["id"] %></p>
+<%= button_to "save to favorites", "/favorite_images/save?id=#{image["id"]}&search=#{@search}", method: 'post' %>
 </div>
-<p><strong>author:</strong> <%=image["user"] %></p>
-<p><strong>id:</strong> <%=image["id"] %></p>
-<%= button_to "save to favorites", "/favorite_images/save?id=#{image["url"]}", method: 'post' %>
+  <%# <%= render "shared/image" , :image => image %>
 <%end%>

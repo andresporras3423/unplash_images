@@ -10,13 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_180245) do
+ActiveRecord::Schema.define(version: 2020_10_03_142000) do
 
-  create_table "favorite_images", force: :cascade do |t|
-    t.string "search_name"
-    t.integer "image_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+# Could not dump table "favorite_images" because of following StandardError
+#   Unknown type '' for column 'image_id'
 
 end
