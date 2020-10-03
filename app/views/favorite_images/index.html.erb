@@ -1,13 +1,14 @@
 <h1>FavoriteImages#index</h1>
 <p>Find me in app/views/favorite_images/index.html.erb</p>
 <%= form_tag '/favorite_images/index', method: 'get' do %>
-  search: <%= text_field_tag :search_name %>
+<%= hidden_field_tag :method , "search_photos" %>
+  <%# search: <%= text_field_tag :search_name %>
   <%= submit_tag "Search" %>
-  <%= @search_name unless @search_name.nil?%>
-  <%= @api_response unless @api_response.nil?%>
 <% end %>
-<%@api_response.to_a.each do |url|%>
-<div class="by-category"  style="background-image: url(<%=url %>); height: 300px; width:400px;">
-
+<%@api_response.to_a.each do |image|%>
+<div class="images-style"  style="background-image: url(<%=image["url"] %>);">
 </div>
+<p><strong>author:</strong> <%=image["user"] %></p>
+<p><strong>id:</strong> <%=image["id"] %></p>
+<%= button_to "save to favorites", "/favorite_images/save?id=#{image["url"]}", method: 'post' %>
 <%end%>

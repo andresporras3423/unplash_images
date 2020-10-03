@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'favorite_images#index'
+  post 'favorite_images/save'
   get 'favorite_images/index'
   get 'favorite_images/show'
   get 'favorite_images/edit'
