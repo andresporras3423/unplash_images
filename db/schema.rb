@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_142000) do
+ActiveRecord::Schema.define(version: 2020_10_03_172308) do
 
 # Could not dump table "favorite_images" because of following StandardError
 #   Unknown type '' for column 'image_id'

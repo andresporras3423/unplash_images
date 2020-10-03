@@ -11,7 +11,7 @@
   </div>
   <p><strong>author:</strong> <%=image["user"] %></p>
   <p><strong>id:</strong> <%=image["id"] %></p>
-<%= button_to "save to favorites", "/favorite_images/save?id=#{image["id"]}&search=#{@search}", method: 'post' %>
+<%= button_to "save to favorites", "/favorite_images/save", method: 'post', params: {id: image["id"], author: image["author"], url: image["url"], search: @search}  %>
 </div>
   <%# <%= render "shared/image" , :image => image %>
 <%end%>

@@ -22,11 +22,13 @@ class FavoriteImagesController < ApplicationController
   end
 
   def save
-    FavoriteImage.create(image_id: params[:id])
-    redirect_to "/favorite_images/index?method=search_photos&search=#{params[:search]}"
+    FavoriteImage.create(image_id: params[:id], url: params[:url], author: params[:author])
+    redirect_to controller: 'favorite_images', action: 'index', search: params[:search]
+    # redirect_to "/favorite_images/index", method: 'post', params: {search: params[:search]}
   end
 
   def show
+    @favorites = FavoriteImage.all
   end
 
   def edit
