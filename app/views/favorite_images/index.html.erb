@@ -6,12 +6,17 @@
   <%= submit_tag "Search" %>
 <% end %>
 <%@api_response.to_a.each do |image|%>
-<div style="<%= @favorite_images.any?{|fi| fi.image_id==image["id"]} ? "background-color: green;" : "" %>">
+<% saved_image= @favorite_images.any?{|fi| fi.image_id==image["id"]} %>
+<div style="<%= saved_image ? "background-color: green;" : "" %>">
   <div class="images-style"  style="background-image: url(<%=image["url"] %>);">
   </div>
   <p><strong>author:</strong> <%=image["user"] %></p>
   <p><strong>id:</strong> <%=image["id"] %></p>
-<%= button_to "save to favorites", "/favorite_images/save", method: 'post', params: {id: image["id"], author: image["author"], url: image["url"], search: @search}  %>
+  <%unless saved_image%>
+    <%= button_to "save to favorites", "/favorite_images/save", method: 'post', params: {id: image["id"], author: image["author"], url: image["url"], search: @search}  %>
+  <%else%>
+    <%= button_to "delete from favorites", "/favorite_images/delete", method: 'delete', params: {id: image["id"], search: @search}  %>
+  <%end%>
 </div>
   <%# <%= render "shared/image" , :image => image %>
 <%end%>
