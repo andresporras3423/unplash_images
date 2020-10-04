@@ -13,7 +13,7 @@
   <p><strong>author:</strong> <%=image["user"] %></p>
   <p><strong>id:</strong> <%=image["id"] %></p>
   <%unless saved_image%>
-    <%= button_to "save to favorites", "/favorite_images/save", method: 'post', params: {id: image["id"], author: image["author"], url: image["url"], search: @search}  %>
+    <%= button_to "save to favorites", "/favorite_images/save", method: 'post', params: {id: image["id"], author: image["user"], url: image["url"], search: @search}  %>
   <%else%>
     <%= button_to "delete from favorites", "/favorite_images/delete", method: 'delete', params: {id: image["id"], search: @search}  %>
   <%end%>

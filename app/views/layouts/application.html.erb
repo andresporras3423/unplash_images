@@ -12,10 +12,10 @@
   <body>
   <nav class="d-grid nav-header">
     <div class="flex-2 nav-links">
-        <%= link_to "home", '/' %>
+        <%= link_to "home", '/', {:style=>"#{$home ? "color: blue;" : ""}"} %>
     </div>
     <div class="flex-1 nav-links">
-      <%= link_to "favorites", '/favorite_images/show' %> 
+      <%= link_to "favorites", '/favorite_images/show', {:style=>"#{$home ? "" : "color: blue;"}"} %> 
     </div>
     
   </nav>

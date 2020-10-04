@@ -1,6 +1,7 @@
 class FavoriteImagesController < ApplicationController
 
   def index
+    $home=true
     @search = params[:search]
     if @search
         photos = Unsplash::Photo.search(@search)
@@ -35,6 +36,7 @@ class FavoriteImagesController < ApplicationController
   end
 
   def show
+    $home=false
     @favorites = FavoriteImage.all
   end
 
