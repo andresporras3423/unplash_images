@@ -1,5 +1,5 @@
 <%@favorites.to_a.each do |image|%>
-  <div class="images-style"  style="background-image: url(<%=image.url %>);">
+  <div id="div-<%=image.image_id%>" class="images-style"  style="background-image: url(<%=image.url %>);">
   </div>
   <p><strong>author:</strong> <%=image.author %></p>
   <p><strong>id:</strong> <%=image.image_id %></p>
