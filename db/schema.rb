@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_04_053843) do
+ActiveRecord::Schema.define(version: 2020_10_04_131159) do
 
   create_table "favorite_images", force: :cascade do |t|
     t.string "author"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_10_04_053843) do
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "uniq_image_id", unique: true
   end
 
 end
