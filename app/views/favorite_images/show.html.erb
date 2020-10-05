@@ -1,6 +1,13 @@
-<%@favorites.to_a.each do |image|%>
-  <div id="div-<%=image.image_id%>" class="images-style"  style="background-image: url(<%=image.url %>);">
+<div class="gallery">
+<%@favorites.to_a.each_with_index do |image, i|%>
+<div>
+<div id="div-<%=image.image_id%>" class="images-style"  style="background-image: url(<%=image.url %>);">
   </div>
-  <p><strong>author:</strong> <%=image.author %></p>
-  <p><strong>id:</strong> <%=image.image_id %></p>
+  <div class="row button-and-author">
+    <p><strong>author:</strong> <%=image.author %></p>
+    <%= button_to "delete from favorites", "/favorite_images/delete", method: 'delete', :form => { :id => "button#{i}", :class => "col-6 button-delete-image" }, params: {id: image.image_id}  %>
+  </div>
+</div>
 <%end%>
+</div>
+

@@ -31,7 +31,8 @@ class FavoriteImagesController < ApplicationController
   def delete
     image_to_delete = FavoriteImage.find_by_image_id(params[:id])
     image_to_delete.destroy
-    redirect_to controller: 'favorite_images', action: 'index', search: params[:search]
+    redirect_back fallback_location: root_path
+    # redirect_to controller: 'favorite_images', action: 'index', search: params[:search]
     # redirect_to "/favorite_images/index", method: 'post', params: {search: params[:search]}
   end
 

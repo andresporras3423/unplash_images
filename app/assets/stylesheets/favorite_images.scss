@@ -10,5 +10,7 @@
 }
 
 .form-search{
-    // grid-column: 2/4 span;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 1fr;
 }
