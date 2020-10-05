@@ -128,10 +128,6 @@ input[type=checkbox] {
     height: 50px;
     color: white;
     background-color: rgb(78, 68, 63);
-    /* position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%; */
 }
 
 .title-footer {
@@ -202,7 +198,6 @@ input[type=checkbox] {
 } 
 
 .images-style{
-    /* height: 300px;  */
     padding-top: 72%;
     width: 96%; 
     background-repeat: no-repeat;
