@@ -2,9 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.images-style{
-    height: 300px; 
-    width:400px; 
-    background-repeat: no-repeat;
-    background-size: 400px 300px;
+.search-container{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-search{
+    // grid-column: 2/4 span;
 }
