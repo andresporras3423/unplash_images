@@ -9,7 +9,7 @@
 <div class="gallery">
 <%@api_response.to_a.each_with_index do |image, i|%>
 <% saved_image= @favorite_images.any?{|fi| fi.image_id==image["id"]} %>
-<div style="<%= saved_image ? "background-color: rgb(0,128,0, 0.5);" : "" %>">
+<div class="section-border" style="<%= saved_image ? "background-color: rgb(0,128,0, 0.5);" : "" %>">
   <div class="images-style"  style="background-image: url(<%=image["url"] %>);">
   </div>
   <div class="row button-and-author">

@@ -191,12 +191,20 @@ input[type=checkbox] {
 
 .button-and-author{
     padding: 10px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
+
+.button-and-author > p, 
+.button-and-author > form > input{
+    font-size: 14px;
+} 
 
 .images-style{
     /* height: 300px;  */
-    padding-top: 75%;
-    width: 100%; 
+    padding-top: 72%;
+    width: 96%; 
     background-repeat: no-repeat;
     background-size: auto auto;
     margin: 10px;
@@ -243,4 +251,22 @@ input[type=checkbox] {
     line-height: 1.5;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.section-border{
+    border-bottom-width: 5px;
+    border-bottom-color: rgb(78, 68, 63);
+    border-bottom-style: solid;
+}
+
+@media only screen and (max-width: 1200px){
+    .gallery{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .gallery{
+        grid-template-columns: 1fr;
+    }
 }

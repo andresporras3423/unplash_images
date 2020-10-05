@@ -1,6 +1,6 @@
 <div class="gallery">
 <%@favorites.to_a.each_with_index do |image, i|%>
-<div>
+<div class="section-border">
 <div id="div-<%=image.image_id%>" class="images-style"  style="background-image: url(<%=image.url %>);">
   </div>
   <div class="row button-and-author">
